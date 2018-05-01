@@ -1,0 +1,31 @@
+spring:
+  transaction:
+    rollback-on-commit-failure: true
+  aop:
+    auto: true
+    proxy-target-class: true
+  datasource:
+    druid:
+      master:
+        url: jdbc:mysql://www.mmooo.cn:3306/dynamic_master?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+        username: root
+        password: 123
+        initial-size: 2
+      slave:
+        url: jdbc:mysql://www.mmooo.cn:3306/dynamic_slave?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+        username: root
+        password: 123
+        initial-size: 4
+
+
+mapper:
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+  helperDialect: mysql
+
+logging:
+  level:
+    root: info
+    cn.mmooo: debug
